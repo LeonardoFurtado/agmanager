@@ -23,3 +23,15 @@ def random_client():
     }
     record = Client.objects.create(**payload)
     return record
+
+
+@pytest.fixture
+def random_client_2():
+    payload = {
+        "name": "Albus Dumbledore",
+        "city": "Mould-on-the-Wold",
+        "state": "Gloucestershire",
+        "country": "England"
+    }
+    record = Client.objects.create(**payload)
+    return record
