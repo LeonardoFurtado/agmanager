@@ -1,10 +1,12 @@
 from rest_framework import serializers
-from core.models import Client, Activity, Project
+from rest_framework.exceptions import ValidationError
+from core.models import Customer, Activity, Project
 
 
-class ClientSerializer(serializers.ModelSerializer):
+class CustomerSerializer(serializers.ModelSerializer):
+    # projects = ProjectSerializer(many=True, read_only=True)
     class Meta:
-        model = Client
+        model = Customer
         fields = '__all__'
 
 
