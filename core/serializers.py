@@ -20,3 +20,8 @@ class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project
         fields = '__all__'
+
+    def validate_customer(self, value):
+        if not value.active:
+            raise ValidationError("The customer is not active.")
+        return value

@@ -33,5 +33,30 @@ def random_customer_2():
         "country": "England",
         "active": True
     }
-    record = Client.objects.create(**payload)
+    record = Customer.objects.create(**payload)
+    return record
+
+
+@pytest.fixture
+def inactive_customer():
+    payload = {
+        "name": "Harry Potter",
+        "city": "Godric's Hollow",
+        "state": "Cornwall",
+        "country": "England",
+        "active": False
+    }
+    record = Customer.objects.create(**payload)
+    return record
+
+
+@pytest.fixture
+def random_project(random_customer):
+    payload = {
+        "name": "Order of the phoenix",
+        "description": "Random description",
+        "customer": random_customer,
+        "status": "in_progress",
+    }
+    record = Project.objects.create(**payload)
     return record
