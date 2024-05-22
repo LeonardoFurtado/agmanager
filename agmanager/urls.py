@@ -16,12 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from core.urls import router as api_router
+from core.urls import router as api_router, projects_router
 from core.urls import customers_router
 
 routes = []
 routes.extend(api_router.urls)
 routes.extend(customers_router.urls)
+routes.extend(projects_router.urls)
 
 urlpatterns = [
     path('api/', include((routes, 'core'), namespace='v1')),

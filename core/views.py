@@ -2,8 +2,8 @@ import logging
 
 from rest_framework.viewsets import ModelViewSet
 
-from core.models import Customer, Project
-from core.serializers import CustomerSerializer, ProjectSerializer
+from core.models import Customer, Project, Activity
+from core.serializers import CustomerSerializer, ProjectSerializer, ActivitySerializer
 
 
 class CustomerViewSet(ModelViewSet):
@@ -23,3 +23,12 @@ class CustomerProjectsViewSet(ModelViewSet):
     def get_queryset(self):
         customer_id = self.kwargs['customer_pk']
         return Project.objects.filter(customer_id=customer_id)
+
+
+class ActivityViewSet(ModelViewSet):
+    queryset = Activity.objects.all()
+    serializer_class = ActivitySerializer
+
+    def get_queryset(self):
+        project_id = self.kwargs['project_pk']
+        return Activity.objects.filter(project_id=project_id)
