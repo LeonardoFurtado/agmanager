@@ -3,13 +3,6 @@ from rest_framework.exceptions import ValidationError
 from core.models import Customer, Activity, Project
 
 
-class CustomerSerializer(serializers.ModelSerializer):
-    # projects = ProjectSerializer(many=True, read_only=True)
-    class Meta:
-        model = Customer
-        fields = '__all__'
-
-
 class ActivitySerializer(serializers.ModelSerializer):
     class Meta:
         model = Activity
@@ -17,6 +10,8 @@ class ActivitySerializer(serializers.ModelSerializer):
 
 
 class ProjectSerializer(serializers.ModelSerializer):
+    activities = ActivitySerializer(many=True, read_only=True)
+
     class Meta:
         model = Project
         fields = '__all__'
@@ -25,3 +20,17 @@ class ProjectSerializer(serializers.ModelSerializer):
         if not value.active:
             raise ValidationError("The customer is not active.")
         return value
+
+
+class CustomerSerializer(serializers.ModelSerializer):
+    projects = ProjectSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Customer
+        fields = '__all__'
+
+
+
+
+
+
