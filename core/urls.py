@@ -13,5 +13,8 @@ customers_router.register(r'projects', ProjectViewSet, basename='customer-projec
 projects_router = NestedSimpleRouter(customers_router, r'projects', lookup='project')
 projects_router.register(r'activities', ActivityViewSet, basename='project-activities')
 
+direct_projects_router = NestedSimpleRouter(router, r'projects', lookup='project')
+direct_projects_router.register(r'activities', ActivityViewSet, basename='project-activities-direct')
+
 urlpatterns = [
 ]
