@@ -101,3 +101,17 @@ def test_delete_project_by_id(api_client, random_project):
     response = api_client.delete('/api/projects/1/')
     assert response.status_code == status.HTTP_204_NO_CONTENT
     assert response.data is None
+
+
+@pytest.mark.django_db
+def test_should_list_all_in_progress_projects_from_a_customer(api_client, random_project, completed_project, random_customer):
+    response = api_client.get(f'/api/customers/{random_customer.id}/projects/?status=in_progress')
+    assert response.status_code == status.HTTP_200_OK
+    assert response.data['count'] == 1
+
+
+@pytest.mark.django_db
+def test_should_list_all_completed_projects_from_a_customer(api_client, random_project, completed_project, random_customer):
+    response = api_client.get(f'/api/customers/{random_customer.id}/projects/?status=completed')
+    assert response.status_code == status.HTTP_200_OK
+    assert response.data['count'] == 1
