@@ -86,6 +86,8 @@ campos disponíveis:
 }
 ```
 
+DELETE `api/customers/{customer_id}/`
+
 ### Projects
 
 POST `api/projects/`
@@ -301,6 +303,20 @@ GET `/api/projects/{project_pk}/activities/{id}/`
 }
 ```
 </details>
+
+PATCH `api/activity/{activity_id}/`
+
+```
+{
+  "title": "string",
+  "description": "string",
+  "status": "string",
+  "active": boolean,
+  "start_date": date,
+  "end_date": date,
+}
+```
+
 
 ## Diagrama
 
