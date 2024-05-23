@@ -1,6 +1,6 @@
 import pytest
 from rest_framework.test import APIClient
-from core.models import Customer, Project
+from core.models import Customer, Project, Activity
 
 
 @pytest.fixture
@@ -69,5 +69,18 @@ def completed_project(random_customer):
         "status": "completed",
     }
     record = Project.objects.create(**payload)
+    return record
+
+
+@pytest.fixture
+def random_activity(random_customer, random_project):
+    data = {
+        "title": "Random activity",
+        "description": "This is a description",
+        "project": random_project,
+        "customer": random_customer,
+        "start_date": "2023-10-10",
+    }
+    record = Activity.objects.create(**data)
     return record
 
