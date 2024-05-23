@@ -70,3 +70,17 @@ def test_should_fail_when_list_activities_if_nonexistent_project_on_direct_url(a
     response = api_client.get(f'/api/projects/999/activities/')
     assert response.status_code == status.HTTP_404_NOT_FOUND
     assert response.data['detail'] == 'Project not found.'
+
+
+@pytest.mark.django_db
+def test_should_fail_when_create_activity_with_project_from_wrong_customer(api_client, random_project, random_customer, random_customer_2):
+    data = {
+        "title": "Random activity",
+        "description": "This is a description",
+        "project": random_project.id,
+        "customer": random_customer_2.id,
+        "start_date": "2023-10-10",
+    }
+    response = api_client.post('/api/activities/', data=data)
+    assert response.status_code == status.HTTP_404_NOT_FOUND
+    assert response.data['detail'] == 'Project not found for the given customer.'
