@@ -1,0 +1,38 @@
+[
+{
+    "model": "core.customer",
+    "pk": 1,
+    "fields": {
+        "name": "harry potter",
+        "city": "Random",
+        "state": "Random",
+        "country": "England",
+        "active": true,
+        "created_at": "2024-05-23T19:22:25.632Z"
+    }
+},
+{
+    "model": "core.customer",
+    "pk": 2,
+    "fields": {
+        "name": "albus dumbleodore",
+        "city": "Random",
+        "state": "Random",
+        "country": "England",
+        "active": true,
+        "created_at": "2024-05-23T19:22:35.815Z"
+    }
+},
+{
+    "model": "core.customer",
+    "pk": 3,
+    "fields": {
+        "name": "rony weasley",
+        "city": "Random",
+        "state": "Random",
+        "country": "England",
+        "active": true,
+        "created_at": "2024-05-23T19:22:43.569Z"
+    }
+}
+]

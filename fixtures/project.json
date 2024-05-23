@@ -1,0 +1,74 @@
+[
+{
+    "model": "core.project",
+    "pk": 1,
+    "fields": {
+        "name": "harry project 1",
+        "description": "Random description",
+        "customer": 1,
+        "status": "not_started",
+        "active": true,
+        "created_at": "2024-05-23T19:23:00.165Z"
+    }
+},
+{
+    "model": "core.project",
+    "pk": 2,
+    "fields": {
+        "name": "harry project 2",
+        "description": "Random description",
+        "customer": 1,
+        "status": "not_started",
+        "active": true,
+        "created_at": "2024-05-23T19:23:04.242Z"
+    }
+},
+{
+    "model": "core.project",
+    "pk": 3,
+    "fields": {
+        "name": "albus project 1",
+        "description": "Random description",
+        "customer": 2,
+        "status": "not_started",
+        "active": true,
+        "created_at": "2024-05-23T19:23:12.579Z"
+    }
+},
+{
+    "model": "core.project",
+    "pk": 4,
+    "fields": {
+        "name": "albus project 2",
+        "description": "Random description",
+        "customer": 2,
+        "status": "not_started",
+        "active": true,
+        "created_at": "2024-05-23T19:23:15.214Z"
+    }
+},
+{
+    "model": "core.project",
+    "pk": 5,
+    "fields": {
+        "name": "rony project 1",
+        "description": "Random description",
+        "customer": 3,
+        "status": "not_started",
+        "active": true,
+        "created_at": "2024-05-23T19:23:29.949Z"
+    }
+},
+{
+    "model": "core.project",
+    "pk": 6,
+    "fields": {
+        "name": "rony project 2",
+        "description": "Random description",
+        "customer": 3,
+        "status": "not_started",
+        "active": true,
+        "created_at": "2024-05-23T19:23:34.553Z"
+    }
+}
+]

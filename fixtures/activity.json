@@ -1,0 +1,77 @@
+[
+{
+    "model": "core.activity",
+    "pk": 1,
+    "fields": {
+        "title": "Random activity 1",
+        "description": "random",
+        "project": 1,
+        "customer": 1,
+        "start_date": "2024-05-21",
+        "end_date": null,
+        "active": true,
+        "status": "not_started",
+        "created_at": "2024-05-23T19:24:00.750Z"
+    }
+},
+{
+    "model": "core.activity",
+    "pk": 2,
+    "fields": {
+        "title": "Random activity 2",
+        "description": "random",
+        "project": 1,
+        "customer": 1,
+        "start_date": "2024-05-21",
+        "end_date": null,
+        "active": true,
+        "status": "not_started",
+        "created_at": "2024-05-23T19:24:04.190Z"
+    }
+},
+{
+    "model": "core.activity",
+    "pk": 3,
+    "fields": {
+        "title": "Random activity 3",
+        "description": "random",
+        "project": 2,
+        "customer": 1,
+        "start_date": "2024-05-21",
+        "end_date": null,
+        "active": true,
+        "status": "not_started",
+        "created_at": "2024-05-23T19:24:09.468Z"
+    }
+},
+{
+    "model": "core.activity",
+    "pk": 4,
+    "fields": {
+        "title": "Random activity 4",
+        "description": "random",
+        "project": 3,
+        "customer": 2,
+        "start_date": "2024-05-21",
+        "end_date": null,
+        "active": true,
+        "status": "not_started",
+        "created_at": "2024-05-23T19:24:19.743Z"
+    }
+},
+{
+    "model": "core.activity",
+    "pk": 5,
+    "fields": {
+        "title": "Random activity 5",
+        "description": "random",
+        "project": 6,
+        "customer": 3,
+        "start_date": "2024-05-21",
+        "end_date": null,
+        "active": true,
+        "status": "not_started",
+        "created_at": "2024-05-23T19:24:31.272Z"
+    }
+}
+]
