@@ -1,6 +1,6 @@
 import logging
 
-from rest_framework.exceptions import NotFound
+from rest_framework.exceptions import NotFound, ValidationError
 from rest_framework.viewsets import ModelViewSet
 from core.models import Customer, Project, Activity
 from core.serializers import CustomerSerializer, ProjectSerializer, ActivitySerializer
@@ -23,14 +23,14 @@ class ProjectViewSet(ModelViewSet):
                 customer = Customer.objects.get(pk=customer_id)
             except Customer.DoesNotExist:
                 raise NotFound('Customer not found.')
-            queryset = Project.objects.filter(customer=customer)
+            queryset = Project.objects.filter(customer=customer).prefetch_related('activities')
             if status:
-                queryset = queryset.filter(status=status)
+                queryset = queryset.filter(status=status).prefetch_related('activities')
             return queryset
 
-        queryset = Project.objects.all()
+        queryset = Project.objects.all().prefetch_related('activities')
         if status:
-            queryset = queryset.filter(status=status)
+            queryset = queryset.filter(status=status).prefetch_related('activities')
         return queryset
 
 
@@ -58,3 +58,16 @@ class ActivityViewSet(ModelViewSet):
                 raise NotFound(detail="Project not found.")
 
         return Activity.objects.filter(project=project)
+
+    def perform_create(self, serializer):
+        customer_id = self.request.data.get('customer')
+        project_id = self.request.data.get('project')
+
+        # not using try catch here because django serializer already did the validation if both customer and project exists.
+        customer = Customer.objects.get(pk=customer_id)
+        try:
+            project = Project.objects.get(pk=project_id, customer=customer)
+        except Project.DoesNotExist:
+            raise NotFound(detail="Project not found for the given customer.")
+
+        serializer.save(project=project)
