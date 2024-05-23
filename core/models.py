@@ -10,14 +10,17 @@ class Customer(models.Model):
 
 
 class Project(models.Model):
+    STATUS_CHOICES = [
+        ('not_started', 'Not Started'),
+        ('in_progress', 'In Progress'),
+        ('completed', 'Completed'),
+        ('on_hold', 'On Hold'),
+    ]
     name = models.CharField(max_length=100)
     description = models.TextField()
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
-    status = models.CharField(max_length=100)
+    status = models.CharField(max_length=30, choices=STATUS_CHOICES, default='not_started')
     active = models.BooleanField(default=True)
-
-    def __str__(self):
-        return self.name
 
 
 class Activity(models.Model):
