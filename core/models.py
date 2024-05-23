@@ -7,6 +7,10 @@ class Customer(models.Model):
     state = models.CharField(max_length=100)
     country = models.CharField(max_length=100)
     active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['created_at']
 
 
 class Project(models.Model):
@@ -21,6 +25,10 @@ class Project(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     status = models.CharField(max_length=30, choices=STATUS_CHOICES, default='not_started')
     active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['created_at']
 
 
 class Activity(models.Model):
@@ -32,3 +40,7 @@ class Activity(models.Model):
     end_date = models.DateField()
     duration = models.DurationField()
     active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['created_at']
