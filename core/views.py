@@ -1,3 +1,5 @@
+import logging
+
 from rest_framework.exceptions import NotFound
 from rest_framework.viewsets import ModelViewSet
 from core.models import Customer, Project, Activity
