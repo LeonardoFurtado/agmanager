@@ -141,6 +141,8 @@ GET `/api/projects/`
 
 GET `/api/customers/{customer_id}/projects/?status=`
 
+os status para filtro podem ser `not_started`,`in_progress`, `completed`, `on_hold`
+
 <details>
 <summary>response example:</summary>
 
@@ -210,6 +212,46 @@ POST `/api/activities/`
 ```
 
 DELETE `/api/activities/{id}/`
+
+GET `/api/customers/{customer_id}/projects/{project_pk}/activities/`
+
+<details>
+<summary>response example:</summary>
+
+```
+{
+	"count": 2,
+	"next": null,
+	"previous": null,
+	"results": [
+		{
+			"id": 1,
+			"title": "Random activity 1",
+			"description": "random",
+			"start_date": "2024-05-21",
+			"end_date": null,
+			"active": true,
+			"status": "not_started",
+			"created_at": "2024-05-23T19:24:00.750000Z",
+			"project": 1,
+			"customer": 1
+		},
+		{
+			"id": 2,
+			"title": "Random activity 2",
+			"description": "random",
+			"start_date": "2024-05-21",
+			"end_date": null,
+			"active": true,
+			"status": "not_started",
+			"created_at": "2024-05-23T19:24:04.190000Z",
+			"project": 1,
+			"customer": 1
+		}
+	]
+}
+```
+</details>
 
 GET `/api/projects/{project_pk}/activities/`
 
