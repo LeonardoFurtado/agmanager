@@ -6,8 +6,6 @@ from core.models import Customer, Project
 @pytest.fixture
 def api_client():
     client = APIClient()
-    headers = {"HTTP_AUTHORIZATION": f"Token Teste"}
-    client.credentials(**headers)
     return client
 
 
@@ -60,3 +58,16 @@ def random_project(random_customer):
     }
     record = Project.objects.create(**payload)
     return record
+
+
+@pytest.fixture
+def completed_project(random_customer):
+    payload = {
+        "name": "completed project",
+        "description": "Random description",
+        "customer": random_customer,
+        "status": "completed",
+    }
+    record = Project.objects.create(**payload)
+    return record
+
