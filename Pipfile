@@ -12,9 +12,9 @@ psycopg2-binary = "*"
 pytest = "*"
 pytest-django = "*"
 drf-nested-routers = "*"
-pytest-cov = "*"
 
 [dev-packages]
+pytest-cov = "*"
 
 [requires]
 python_version = "3.10"
