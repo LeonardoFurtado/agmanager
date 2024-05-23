@@ -7,6 +7,9 @@ services:
     command: bash -c "while !</dev/tcp/db/5432; do sleep 1; done;
                       python3 manage.py makemigrations;
                       python3 manage.py migrate;
+                      python manage.py loaddata fixtures/customer.json --app core.customer;
+                      python manage.py loaddata fixtures/project.json --app core.project;
+                      python manage.py loaddata fixtures/activity.json --app core.activity;
                       python manage.py runserver 0.0.0.0:8000"
     volumes:
       - ./app/:/usr/src/app/
