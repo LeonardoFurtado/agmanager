@@ -32,14 +32,20 @@ class Project(models.Model):
 
 
 class Activity(models.Model):
+    STATUS_CHOICES = [
+        ('not_started', 'Not Started'),
+        ('in_progress', 'In Progress'),
+        ('completed', 'Completed'),
+        ('on_hold', 'On Hold'),
+    ]
     title = models.CharField(max_length=100)
     description = models.TextField()
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     start_date = models.DateField()
-    end_date = models.DateField()
-    duration = models.DurationField()
+    end_date = models.DateField(blank=True, null=True)
     active = models.BooleanField(default=True)
+    status = models.CharField(max_length=30, choices=STATUS_CHOICES, default='not_started')
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
