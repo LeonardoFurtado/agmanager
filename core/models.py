@@ -40,7 +40,7 @@ class Activity(models.Model):
     ]
     title = models.CharField(max_length=100)
     description = models.TextField()
-    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='activities')
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     start_date = models.DateField()
     end_date = models.DateField(blank=True, null=True)
