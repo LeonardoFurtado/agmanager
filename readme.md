@@ -259,3 +259,7 @@ GET `/api/projects/{project_pk}/activities/{id}/`
 }
 ```
 </details>
+
+## Diagrama
+
+![diagrama](diagram.png)
