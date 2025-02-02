@@ -8,7 +8,7 @@ execute:
 ```
 docker-compose up --build
 ```
-A aplicação estará sendo executada na porta `8000`
+A aplicação estará sendo executada na porta `:8000`
 
 
 ## Executando testes
